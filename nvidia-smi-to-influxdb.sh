@@ -55,6 +55,6 @@ METRICS="power.draw power.limit temperature.gpu
 while true; do
 	outputData="$(get_data_gpu0 $METRICS)"$'\n'"$(get_data_gpu1 $METRICS)"$'\n'"$(get_data_gpu2 $METRICS)"$'\n'"$(get_data_gpu3 $METRICS)"
 	# echo "$outputData"
-	curl -i -XPOST "http://10.20.31.124:8086/write?db=(fill in with dbname)&u=(fill in with username)&p=(fill in with password)" --data-binary "$outputData"
+	curl -i -XPOST "(fill in with InfluxDB URL and port)/write?db=(fill in with dbname)&u=(fill in with username)&p=(fill in with password)" --data-binary "$outputData"
 	sleep 1
 done
